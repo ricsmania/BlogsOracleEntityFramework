@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore namespace="BlogsModel" p1:name="Model" p1:Guid="354cb5d7-91b1-4d90-9c93-8ebf3657c126" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="Post" entity-set="Posts" table="POSTS" schema="SYSTEM" p1:Guid="9f568d5d-5b14-4f78-ab23-014f87ffda4f">
+    <id name="Id" type="Decimal" p1:ValidateRequired="true" p1:Guid="35cdb98a-1348-47ac-9813-5f8833a294a9">
+      <column name="ID" not-null="True" sql-type="NUMBER" p1:unicode="False" />
+    </id>
+    <property name="BlogId" type="Decimal" p1:ValidateRequired="true" p1:Guid="9c109c66-8c6f-47ca-86f3-84531c41a4b3">
+      <column name="BLOG_ID" not-null="True" sql-type="NUMBER" p1:unicode="False" />
+    </property>
+    <property name="Title" type="String" p1:ValidateRequired="true" p1:Guid="473477ab-788f-4b58-93ff-c8fa1deff8ed">
+      <column name="TITLE" not-null="True" length="200" sql-type="VARCHAR2" p1:unicode="False" />
+    </property>
+    <property name="Content" type="String" p1:ValidateRequired="true" p1:Guid="d8cba592-67f3-4b08-8142-f0794519cf38">
+      <column name="CONTENT" not-null="True" length="500" sql-type="VARCHAR2" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Blog" entity-set="Blogs" table="BLOGS" schema="SYSTEM" p1:Guid="e9a5770b-976c-4cd8-8d15-1c5ddbfadd17">
+    <id name="Id" type="Decimal" p1:ValidateRequired="true" p1:Guid="01d5456b-9a13-47da-8801-0a9500cfcd30">
+      <column name="ID" not-null="True" sql-type="NUMBER" p1:unicode="False" />
+    </id>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="a535d741-5263-4386-8ec9-57f8f8593bfa">
+      <column name="NAME" not-null="True" length="200" sql-type="VARCHAR2" p1:unicode="False" />
+    </property>
+  </class>
+  <associations>
+    <association name="Blog_Post" cardinality="OneToMany" p1:Guid="a5fe30dd-cf4c-444b-9d32-4277c4bc1529">
+      <end1 multiplicity="One" name="Blog" class="Post" relation-class="Blog" generate="False" constrained="True" p1:Guid="252a2524-03a0-4ed4-82d5-8148fd388018">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Posts" class="Blog" relation-class="Post" p1:Guid="d0a70922-9a3d-4680-a52d-55a2c3d292b9">
+        <property name="BlogId" />
+      </end2>
+    </association>
+  </associations>
+</efcore>

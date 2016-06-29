@@ -1,0 +1,18 @@
+﻿{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+  },
+
+  "frameworks": {
+    "net461": {
+      "frameworkAssemblies": {
+        "System.Net": "4.0.0.0",
+        "System.Net.Http": "4.0.0.0"
+      }
+    }
+  }
+}
